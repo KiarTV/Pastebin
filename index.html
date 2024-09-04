@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text speichern und anzeigen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #007BFF;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: calc(100% - 22px);
+            height: 150px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Text speichern und anzeigen</h1>
+        <textarea id="textInput" placeholder="Gib hier deinen Text ein..."></textarea>
+        <button onclick="saveAndRedirect()">Speichern und anzeigen</button>
+    </div>
+
+    <script>
+        function saveAndRedirect() {
+            const text = document.getElementById('textInput').value;
+            const encodedText = encodeURIComponent(text);
+            const rawUrl = window.location.origin + '/raw.html?text=' + encodedText;
+            window.location.href = rawUrl;
+        }
+    </script>
+
+</body>
+</html>

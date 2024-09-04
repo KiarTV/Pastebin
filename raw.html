@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raw Text</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 20px;
+            white-space: pre-wrap; /* Text mit Zeilenumbrüchen korrekt darstellen */
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Holen des Texts aus der URL
+        const params = new URLSearchParams(window.location.search);
+        const text = params.get('text');
+
+        // Text als Rohtext ausgeben
+        document.body.textContent = decodeURIComponent(text);
+    </script>
+</body>
+</html>
